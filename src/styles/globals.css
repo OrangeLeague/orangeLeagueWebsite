@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -----Almarai--------- */
+
+@font-face {
+  font-family: "Almarai";
+  src: url("../../public/fonts/Almarai-Light.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Almarai";
+  src: url("../../public/fonts/Almarai-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Almarai";
+  src: url("../../public/fonts/Almarai-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Almarai";
+  src: url("../../public/fonts/Almarai-ExtraBold.ttf");
+  font-weight: 800;
+}
+
+body {
+  box-sizing: 0;
+  margin: 0;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-wave {
+  animation: moveGradient 3s infinite linear;
+}
+
+.tech-card {
+  transition: transform 0.6s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+.tech-card:hover {
+  transform: translateY(-20px);
+}
+
+.tech-card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: opacity 0.2s ease;
+  opacity: 0;
+  z-index: -1;
+}
+
+.tech-card:hover:before {
+  opacity: 0;
+}
+
+.tech-card .button-container {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  transition: bottom 0.6s ease;
+}
+
+.tech-card:hover .button-container {
+  bottom: 0;
+}
+
+.tech-card:hover .button-container .primary-button {
+  transform: translateY(-100px);
+}
+
+.tech-card .primary-button {
+  transform: translateY(100px);
+  transition: transform 0.6s ease;
+  opacity: 1;
+}
+
+.tech-card:hover .primary-button {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.primary-button-animation {
+  overflow: hidden;
+  transition: width 0.6s ease-in-out;
+  width: 2.4rem; /* Adjust according to your icon size */
+}
+
+.primary-button-animation.hovered {
+  width: auto;
+}
+
+.primary-button-animation span {
+  white-space: nowrap;
+  transition: opacity 0.3s ease-in;
+  opacity: 0;
+}
+
+.primary-button-animation.hovered span {
+  opacity: 1;
+}
+
+.tech-card .secondary {
+  width: 40px;
+  /* height: 34px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  transition: width 0.6s ease-in-out, margin-left 0.6s ease-in-out;
+}
+
+.tech-card .secondary span.learn {
+  visibility: hidden;
+  transition: visibility 0.1s, opacity 0.6s ease-in-out;
+  opacity: 1;
+  position: absolute;
+}
+
+.tech-card:hover .secondary {
+  width: 160px;
+}
+
+.tech-card:hover .secondary .learn {
+  visibility: visible;
+}
+.tech-card .secondary .arrow-icon {
+  transition: margin-left 0.6s ease-in-out;
+  opacity: 1;
+}
+.tech-card:hover .secondary .arrow-icon {
+  opacity: 1;
+  margin-left: 7.2rem;
+}
+
+.tech-card .secondary .learn {
+  margin-left: 0;
+}
